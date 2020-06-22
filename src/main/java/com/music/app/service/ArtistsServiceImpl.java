@@ -12,9 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 import com.music.app.dao.ArtistsRespository;
 import com.music.app.model.Artists;
 
+/**
+ * 
+ * @author Beulah Mercy
+ *
+ */
 @Service
 @Transactional
-public class ArtistsServiceImpl implements ArtistsService{
+public class ArtistsServiceImpl implements ArtistsService {
+	
 	@Autowired
 	private ArtistsRespository artistsRepository;
 

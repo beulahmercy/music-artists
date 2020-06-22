@@ -18,7 +18,7 @@ import com.music.app.model.Albums;
  */
 @Service
 @Transactional
-public class AlbumServiceImpl implements AlbumService{
+public class AlbumServiceImpl implements AlbumService {
 
 	@Autowired
 	private AlbumRespository albumRepository;
