@@ -64,4 +64,118 @@ RESPONSE Expected signature base string: rVoKOntEkGPPyddTRYodsTjKuLRVfWSV&POxYdh
 * Have included spring-boot-starter-actuator dependency which enables the following services to check the analytics
  /metrics, /health
  example URL http://localhost:8084/actuator/metrics/http.server.requests
+
+# Database Cache
+* To enable caching add @EnableCaching annotation to spring configuration file.
+* Write @Cacheable annotation at method level which returns values. @Cacheable requires value parameter which indicates key of cachable value.
+* @CacheEvict annotation used for clean cache value. While add, update or delete the value in the database then we need to clear existing cache to the consistency of result.
+### Disable Cache
+spring.cache.type=none
+
+# Spring Boot Logging
+* spring-boot-starter-web, depends on spring-boot-starter-logging, which already pulls in spring-jcl for us.
+* When using starters, Logback is used for logging by default.
+* the default logging level of the Logger is preset to INFO, meaning that TRACE and DEBUG messages are not visible.
+* To customize logging level
+  * logging.level.org.springframework=TRACE
+  * logging.level.com.example=TRACE
+### Logback Configuration Logging
+When a file in the classpath has one of the following names, Spring Boot will automatically load it over the default configuration:
+* logback-spring.xml
+* logback.xml
+* logback-spring.groovy
+* logback.groovy
+
+# Custom annotation in Spring Boot
+* @Target in the above annotation definition defines where to apply the annotation . In our case it is at the method level , so we give ElementType.METHOD as parameter
+
+* @Retention denotes when to apply this annotation , in our case it is at run time
+
+###To trace the requests and responses to a REST method in Spring Boot.
+```
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
  
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Traceable {
+}
+```
+
+```
+@Aspect
+@Component
+public class TraceableAspect {
+
+    Logger logger = LoggerFactory.getLogger(TraceableAspect.class);
+ 
+    @Around("@annotation(Traceable)")
+    public Object trace(ProceedingJoinPoint joinPoint) throws Throwable {
+ 
+        logger.info("Input : {}", joinPoint.getArgs()[0]);
+ 
+        Object result = joinPoint.proceed();
+
+        // Creating Object of ObjectMapper define in Jakson Api
+        ObjectMapper Obj = new ObjectMapper();
+
+        try {
+
+            // get Organisation object as a json string
+            String jsonStr = Obj.writeValueAsString(result);
+
+            // Displaying JSON String
+            logger.info("result {}", jsonStr);
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+ 
+}
+```
+# Java Collections Reference
+https://en.proft.me/2013/11/3/java-collection-framework-cheat-sheet/
+
+# Data Structures & Algorithms
+
+###Working example for data structures and algorithms
+https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42
+
+###Common Data Structures Operations
+* Array
+* Stack
+* Queue
+* Singly Linked List
+* Doubly Linked List
+* Hash Table
+* Binary Search Tree
+* AVL Tree
+  
+###Sorting and Searching
+
+* Selection Sort
+  * https://i0.wp.com/www.algolist.net/img/sorts/selection-sort-1.png?zoom=2
+
+* Insertion Sort
+  
+* Bubble Sort
+
+* Merge Sort
+
+* Quick Sort
+
+* Heap Sort
+
+* Sequential / Linear Search (unordered list)
+
+* Binary Search (in a sorted array)
+
+* Binary Search Tree (unbalanced)
+
+* Hash Table (separate chaining) & (linear probing)

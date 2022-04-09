@@ -5,19 +5,15 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.music.app.aspect.trace.Traceable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.music.app.exception.ResourceNotFoundException;
 import com.music.app.model.Albums;
@@ -33,6 +29,9 @@ import com.music.app.service.ArtistsService;
 @RestController
 @RequestMapping(path="/music")
 public class MusicRestController {
+	@Autowired
+	private CacheManager cacheManager;
+
 	@Autowired
 	private ArtistsService artistsService;
 
@@ -64,8 +63,9 @@ public class MusicRestController {
 	 * @return specific artist details based on given artistId
 	 */
 	@GetMapping("/artists/{artistId}/albums")
+	@Traceable
 	public List<Albums> getArtistsAlbums(@PathVariable("artistId") Long artistId) {
-		Sort sort = Sort.by(Sort.Order.asc("name"), Sort.Order.desc("yearOfRelease"));
+		Sort sort = Sort.by(Sort.Order.asc("artist.name"), Sort.Order.desc("yearOfRelease"));
 		List<Albums> albums = albumService.findByArtistId(artistId, sort);
 		return albums;
 	}
@@ -75,11 +75,11 @@ public class MusicRestController {
 	 * @param pageNo
 	 * @return list of artists with 3 records per page
 	 */
-	@GetMapping("/artists/page/{pageNo}")
+	@GetMapping("/artists/pages/{pageNo}")
 	public List<Artists> getArtistsPaging(@PathVariable("pageNo") int pageNo) {
 		Pageable paging = PageRequest.of(pageNo, 3, Sort.by("name"));
 		
-		Page<Artists> pagedResult = artistsService.findAll(paging);
+		Page<Artists> pagedResult = artistsService.findAllByName("john", paging);
 		
 		if (pagedResult.hasContent()) {
 			return pagedResult.getContent();
@@ -159,5 +159,12 @@ public class MusicRestController {
 			album.setGenres(albums.getGenres());
 			return albumService.save(album);
 		}).orElseThrow(() -> new ResourceNotFoundException(String.format("Albums with ID %s not found", albumId)));
+	}
+
+	@DeleteMapping("/clear/cache")
+	public void clearCache(){
+		for(String name:cacheManager.getCacheNames()){
+			cacheManager.getCache(name).clear();
+		}
 	}
 }

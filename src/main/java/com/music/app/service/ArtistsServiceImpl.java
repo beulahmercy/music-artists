@@ -24,16 +24,17 @@ public class ArtistsServiceImpl implements ArtistsService {
 	@Autowired
 	private ArtistsRespository artistsRepository;
 
-	public ArtistsServiceImpl() {
-
-	}
-
 	public Iterable<Artists> findAll(Sort sort) {
 		return artistsRepository.findAll(sort);
 	}
 
 	public Page<Artists> findAll(Pageable pagable) {
 		return artistsRepository.findAll(pagable);
+	}
+
+	@Override
+	public Page<Artists> findAllByName(String name, Pageable pagable) {
+		return artistsRepository.findAllByName(name, pagable);
 	}
 
 	public Artists save(Artists artists) {

@@ -28,6 +28,13 @@ public interface ArtistsService {
 	public Page<Artists> findAll(Pageable pagable);
 
 	/**
+	 *
+	 * @param pagable
+	 * @return list of artists with paging
+	 */
+	public Page<Artists> findAllByName(String name, Pageable pagable);
+
+	/**
 	 * 
 	 * @param artists
 	 * @return saved artists data

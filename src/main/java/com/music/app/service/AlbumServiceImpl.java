@@ -23,10 +23,6 @@ public class AlbumServiceImpl implements AlbumService {
 	@Autowired
 	private AlbumRespository albumRepository;
 
-	public AlbumServiceImpl() {
-
-	}
-
 	public Albums save(Albums albums) {
 		return albumRepository.save(albums);
 	}

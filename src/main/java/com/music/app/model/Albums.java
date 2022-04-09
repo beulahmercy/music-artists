@@ -2,14 +2,7 @@ package com.music.app.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -24,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Albums {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name = "id")
 	private Long id;
 
@@ -87,13 +80,14 @@ public class Albums {
 		this.title = title;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Albums [id=" + id + ", yearOfRelease=" + yearOfRelease + ", title=" + title + ", artist=" + artist
 				+ ", genres=" + genres + ", getId()=" + getId() + ", getYearOfRelease()=" + getYearOfRelease()
-				+ ", getArtist()=" + getArtist() + ", getGenres()=" + getGenres() + ", getTitle()=" + getTitle()
+				//+ ", getArtist()=" + getArtist()
+				+ ", getGenres()=" + getGenres() + ", getTitle()=" + getTitle()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
-	}
+	}*/
 
 }

@@ -1,11 +1,7 @@
 package com.music.app.model;
 
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -18,7 +14,7 @@ import javax.validation.constraints.Size;
 public class Artists {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
 		
 	@OneToMany(mappedBy="artist", fetch=FetchType.LAZY)
@@ -58,8 +54,9 @@ public class Artists {
 
 	@Override
 	public String toString() {
-		return "Artists [id=" + id + ", albums=" + albums + ", name=" + name + ", getId()=" + getId() + ", getAlbums()="
-				+ getAlbums() + ", getName()=" + getName() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+		return "Artists [id=" + id + ", albums=" + albums + ", name=" + name + ", getId()=" + getId()
+				//+ ", getAlbums()=" + getAlbums()
+				+ ", getName()=" + getName() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + "]";
 	}
 	

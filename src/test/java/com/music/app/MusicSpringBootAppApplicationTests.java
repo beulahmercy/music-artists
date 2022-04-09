@@ -19,7 +19,6 @@ import com.music.app.dao.ArtistsRespository;
 import com.music.app.model.Albums;
 import com.music.app.model.Artists;
 
-@SpringBootTest
 @DataJpaTest
 class MusicSpringBootAppApplicationTests {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -34,7 +33,7 @@ class MusicSpringBootAppApplicationTests {
 	}
 	
 	@Test
-    public void saveArtists() 
+    public void doSaveArtists()
     {
 		Artists artists = new Artists();
 		artists.setName("john");

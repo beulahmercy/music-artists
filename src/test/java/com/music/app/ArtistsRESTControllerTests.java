@@ -24,37 +24,36 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest(classes = MusicSpringBootAppApplication.class)
 @WebAppConfiguration
 public class ArtistsRESTControllerTests {
-	 @Autowired
-	    private WebApplicationContext webApplicationContext;
-	    private MockMvc mockMvc;
+    @Autowired
+    private WebApplicationContext webApplicationContext;
+    private MockMvc mockMvc;
 
-	    @Before
-	    public void getContext() {
-	        mockMvc = webAppContextSetup(webApplicationContext).build();
-	        assertNotNull(mockMvc);
-	    }
- 
-  
-  @Test
-  public void getAllArtistsAPI() throws Exception 
-  {
-	     ResultActions resultActions = mockMvc.perform(get("/artists"));
-	     resultActions.andExpect(MockMvcResultMatchers.jsonPath("$.name").exists());
-         MockHttpServletResponse mockResponse = resultActions.andReturn()
-                 .getResponse();         
-         assertEquals(200, mockResponse.getStatus());
-  }
-  
-  @Test
-  public void postArtistsAPI() throws Exception 
-  {
-	  String body = "{\"name\":\"john\"}";
+    @Before
+    public void getContext() {
+        mockMvc = webAppContextSetup(webApplicationContext).build();
+        assertNotNull(mockMvc);
+    }
 
-	  ResultActions resultActions = mockMvc.perform(post("/artists")
-              .content(body)
-              .contentType("application/json"));
-      MockHttpServletResponse mockResponse = resultActions.andReturn()
-              .getResponse();
-      assertEquals(200, mockResponse.getStatus());
-  }
+    @Test
+    public void postArtistsAPI() throws Exception {
+        String body = "{\"name\":\"john\"}";
+
+        ResultActions resultActions = mockMvc.perform(post("/music/artists")
+                .content(body)
+                .contentType("application/json"));
+        MockHttpServletResponse mockResponse = resultActions.andReturn()
+                .getResponse();
+        assertEquals(200, mockResponse.getStatus());
+    }
+
+    @Test
+    public void getAllArtistsAPI() throws Exception {
+        ResultActions resultActions = mockMvc.perform(get("/music/artists"));
+        resultActions.andExpect(MockMvcResultMatchers.jsonPath("$[0].name").exists());
+        MockHttpServletResponse mockResponse = resultActions.andReturn()
+                .getResponse();
+        assertEquals(200, mockResponse.getStatus());
+    }
+
+
 }
