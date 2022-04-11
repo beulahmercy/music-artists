@@ -91,7 +91,7 @@ When a file in the classpath has one of the following names, Spring Boot will au
 
 * @Retention denotes when to apply this annotation , in our case it is at run time
 
-###To trace the requests and responses to a REST method in Spring Boot.
+### To trace the requests and responses to a REST method in Spring Boot.
 ```
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -143,11 +143,11 @@ https://en.proft.me/2013/11/3/java-collection-framework-cheat-sheet/
 
 # Data Structures & Algorithms
 
-###Working example for data structures and algorithms
+### Working example for data structures and algorithms
 https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42
 
-###Common Data Structures Operations
+### Common Data Structures Operations
 * Array
 * Stack
 * Queue
@@ -157,7 +157,7 @@ https://towardsdatascience.com/8-common-data-structures-every-programmer-must-kn
 * Binary Search Tree
 * AVL Tree
   
-###Sorting and Searching
+### Sorting and Searching
 
 * Selection Sort
   * https://i0.wp.com/www.algolist.net/img/sorts/selection-sort-1.png?zoom=2
