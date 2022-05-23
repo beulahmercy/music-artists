@@ -138,6 +138,10 @@ public class TraceableAspect {
  
 }
 ```
+
+# Java Core Basics
+https://iq.opengenus.org/interface-in-java/
+
 # Java Collections Reference
 https://en.proft.me/2013/11/3/java-collection-framework-cheat-sheet/
 https://www.journaldev.com/780/comparable-and-comparator-in-java-example
