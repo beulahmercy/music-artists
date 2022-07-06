@@ -139,8 +139,13 @@ public class TraceableAspect {
 }
 ```
 
-# Java Core Basics
+# Java Core Basics (Before interview refresh the below links)
 https://iq.opengenus.org/interface-in-java/
+http://java.scjp.jobs4times.com/enum.htm#:~:text=Speciality%20of%20java%20enum%3A,not%20possible%20in%20old%20languages.
+https://dzone.com/articles/how-do-i-compare-strings-in-java#:~:text=In%20Java%20Strings%2C%20the%20%3D%3D,value%20equality%20of%20both%20strings.&text=When%20we%20assign%20a%20string,the%20string%20pool%20or%20not.
+https://coderolls.com/compare-two-strings-lexicographically-in-java/
+https://stackabuse.com/guide-to-java-8-collectors-collectingandthen/
+https://www.oracle.com/technical-resources/articles/java/ma14-java-se-8-streams.html
 
 # Java Collections Reference
 https://en.proft.me/2013/11/3/java-collection-framework-cheat-sheet/
