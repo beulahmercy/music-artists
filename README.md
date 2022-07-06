@@ -148,11 +148,11 @@ https://stackabuse.com/guide-to-java-8-collectors-collectingandthen/
 https://www.oracle.com/technical-resources/articles/java/ma14-java-se-8-streams.html
 
 # Java Collections Reference
-https://en.proft.me/2013/11/3/java-collection-framework-cheat-sheet/
-https://www.journaldev.com/780/comparable-and-comparator-in-java-example
-https://www.baeldung.com/java-concurrentmodificationexception
-https://dzone.com/articles/10-things-become-outstanding
-https://www.softwaretestinghelp.com/java-collections-interview-questions/
+* https://en.proft.me/2013/11/3/java-collection-framework-cheat-sheet/
+* https://www.journaldev.com/780/comparable-and-comparator-in-java-example
+* https://www.baeldung.com/java-concurrentmodificationexception
+* https://dzone.com/articles/10-things-become-outstanding
+* https://www.softwaretestinghelp.com/java-collections-interview-questions/
 
 # Java Hashcode & Equals
 https://bulldogjob.pl/readme/how-not-to-break-your-app-with-hashcode-and-equals
@@ -163,8 +163,8 @@ https://www.vogella.com/tutorials/JavaConcurrency/article.html
 # Data Structures & Algorithms
 
 ### Working example for data structures and algorithms
-https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
-https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42
+* https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+* https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42
 
 ### Common Data Structures Operations
 * Array
