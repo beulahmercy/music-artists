@@ -1,4 +1,4 @@
-STACK used..!!!
+STACK used
 Java 8 + Spring Boot 2.X  + JPA
 
 Have created the following RESTful API
