@@ -198,3 +198,14 @@ https://www.vogella.com/tutorials/JavaConcurrency/article.html
 * Binary Search Tree (unbalanced)
 
 * Hash Table (separate chaining) & (linear probing)
+
+### important link
+https://overapi.com/javascript
+https://www.themuse.com/advice/tell-me-about-yourself-interview-question-answer-examples
+https://dzone.com/articles/how-do-i-compare-strings-in-java#:~:text=In%20Java%20Strings%2C%20the%20%3D%3D,value%20equality%20of%20both%20strings.&text=When%20we%20assign%20a%20string,the%20string%20pool%20or%20not.
+https://stackabuse.com/guide-to-java-8-collectors-collectingandthen/
+https://mkyong.com/spring-boot/spring-rest-spring-security-example/
+https://stackoverflow.com/questions/34109363/how-can-we-maintain-immutability-of-a-class-with-a-mutable-reference
+https://www.tutorialspoint.com/how-can-we-implement-a-custom-hashset-in-java
+https://www.journaldev.com/370/java-programming-interview-questions
+https://www.tutorialspoint.com/javascript/javascript_tutorial.pdf
